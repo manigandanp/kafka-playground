@@ -1,0 +1,21 @@
+version: "2"
+services:
+  kafka-img:
+    build: .
+    image: manikandan305/kafka:latest
+  zookeeper:
+    image: manikandan305/kafka
+    ports:
+      - "2181:2181"
+    command: zookeeper-server-start.sh config/zookeeper.properties
+    volumes:
+      - ./config/zookeeper.properties:/config/zookeeper.properties
+  kafka:
+    image: manikandan305/kafka
+    ports:
+      - "9092:9092"
+    links:
+      - zookeeper
+    command: kafka-server-start.sh config/server.properties
+    volumes:
+      - ./config/server.properties:/config/server.properties

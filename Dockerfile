@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y \
   openjdk-8-jre \
   wget
 
-RUN wget https://mirrors.estointernet.in/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
+RUN wget https://dlcdn.apache.org/kafka/3.0.0/kafka_2.12-3.0.0.tgz
 
 RUN tar -xvzf kafka_*.tgz
 
